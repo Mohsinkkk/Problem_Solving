@@ -1,6 +1,6 @@
 # Problem Solving Repository 🚀
 
-![Problem Solving]([https://img.shields.io/badge/LeetCode-5%20Stars-orange]) ![CodeChef]([https://img.shields.io/badge/CodeChef-5%20Stars-blue]) ![CodeForces]([https://img.shields.io/badge/CodeForces-Candidate%20Master-purple])
+![Problem Solving](https://img.shields.io/badge/LeetCode-5%20Stars-orange) ![CodeChef](https://img.shields.io/badge/CodeChef-5%20Stars-blue) ![CodeForces](https://img.shields.io/badge/CodeForces-Candidate%20Master-purple)
 
 Welcome to my **Problem Solving Repository**! 💡 This repository contains solutions to various **DSA (Data Structures & Algorithms)** problems from platforms like **LeetCode, CodeChef, CodeForces, and more**. The goal is to **improve problem-solving skills, optimize solutions, and share knowledge** with fellow developers.
 
@@ -70,5 +70,4 @@ Problem_Solving/
 ---
 
 _Keep coding, keep learning! 🚀💻_
-
 
