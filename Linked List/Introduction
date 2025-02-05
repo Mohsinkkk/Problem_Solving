@@ -1,0 +1,168 @@
+## **Linked List - Full Details**  
+
+### **What is a Linked List? (English)**
+A **Linked List** is a linear data structure where elements (called **nodes**) are stored in a sequence, but **not in contiguous memory locations** like arrays. Each **node** consists of two parts:  
+1. **Data** → Stores the actual value.  
+2. **Pointer (Next)** → Points to the next node in the list.  
+
+Unlike arrays, linked lists allow **dynamic memory allocation**, meaning their size can grow or shrink during runtime.  
+
+---
+
+### **Linked List Kya Hai? (Hinglish)**
+**Linked List ek linear data structure hai** jisme elements **sequence me store hote hain**, **lekin contiguous memory me nahi** (jaise arrays me hote hain). Har **node** do parts me divided hota hai:  
+1. **Data** → Jo actual value store karta hai.  
+2. **Pointer (Next)** → Jo next node ka address store karta hai.  
+
+Arrays ki tarah **fixed size nahi hota**, isme memory dynamically allocate hoti hai, **toh hum jitne chahein utne nodes create ya delete kar sakte hain**.  
+
+---
+
+## **Types of Linked List**
+### **1. Singly Linked List**  
+💡 **Definition (English):**  
+In this type, each node has **data** and a **next pointer** that stores the address of the next node. The last node points to `NULL`.  
+
+💡 **Definition (Hinglish):**  
+Isme **har node next node ka address store karta hai**. **Last node NULL ko point karta hai**, jo indicate karta hai ki list yahan khatam ho gayi hai.  
+
+🔹 **Example:**  
+```
+Head → [10 | *] → [20 | *] → [30 | NULL]
+```
+
+---
+
+### **2. Doubly Linked List**  
+💡 **Definition (English):**  
+Each node has **three parts**: **data, next pointer, and previous pointer**. This allows traversal in **both forward and backward directions**.  
+
+💡 **Definition (Hinglish):**  
+Yeh **three-part structure** hoti hai → **Data, Next Pointer, aur Previous Pointer**. **Is wajah se hum list ko dono directions me traverse kar sakte hain.**  
+
+🔹 **Example:**  
+```
+NULL ← [10 | * | *] ↔ [20 | * | *] ↔ [30 | NULL]
+```
+
+---
+
+### **3. Circular Linked List**  
+💡 **Definition (English):**  
+A **circular linked list** is where the **last node does not point to NULL**, instead, it connects back to the first node, forming a **circle**.  
+
+💡 **Definition (Hinglish):**  
+Yeh ek **aisa linked list hai jisme last node NULL ko point nahi karta**, balki **pehle node se connect hota hai**, jo ek **circle form karta hai**.  
+
+🔹 **Example:**  
+```
+[10 | *] → [20 | *] → [30 | *] → Back to [10]
+```
+
+---
+
+## **Advantages of Linked List**  
+✅ **Dynamic Size:** No need to define size in advance, unlike arrays.  
+✅ **Efficient Insertion/Deletion:** Inserting/deleting a node is easy (O(1) if pointer is given).  
+✅ **Memory Utilization:** Memory is allocated dynamically, preventing wastage.  
+
+## **Disadvantages of Linked List**  
+❌ **Extra Memory:** Needs additional space for pointers.  
+❌ **Slow Access:** Cannot access elements by index directly like arrays (O(N) search time).  
+❌ **Complex Implementation:** More complicated than arrays due to pointer management.  
+
+---
+
+## **Basic Operations in Linked List**  
+### **1. Insertion (Adding a Node)**
+- At **beginning** → O(1)  
+- At **end** → O(N)  
+- At **any position** → O(N)  
+
+### **2. Deletion (Removing a Node)**
+- From **beginning** → O(1)  
+- From **end** → O(N)  
+- From **any position** → O(N)  
+
+### **3. Searching**
+- **Linear Search** → O(N)  
+
+### **4. Traversal**
+- **Singly Linked List** → Forward traversal only (O(N))  
+- **Doubly Linked List** → Forward & backward traversal (O(N))  
+
+---
+
+## **Code Implementation (Java)**
+### **1. Singly Linked List Implementation**
+```java
+class Node {
+    int data;
+    Node next;
+    
+    Node(int data) {
+        this.data = data;
+        this.next = null;
+    }
+}
+
+class LinkedList {
+    Node head; // Head of the linked list
+
+    // Insert at the end
+    void insert(int data) {
+        Node newNode = new Node(data);
+        if (head == null) {
+            head = newNode;
+            return;
+        }
+        Node temp = head;
+        while (temp.next != null) {
+            temp = temp.next;
+        }
+        temp.next = newNode;
+    }
+
+    // Print Linked List
+    void printList() {
+        Node temp = head;
+        while (temp != null) {
+            System.out.print(temp.data + " → ");
+            temp = temp.next;
+        }
+        System.out.println("NULL");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        LinkedList list = new LinkedList();
+        list.insert(10);
+        list.insert(20);
+        list.insert(30);
+        
+        list.printList(); // Output: 10 → 20 → 30 → NULL
+    }
+}
+```
+
+---
+
+## **When to Use Linked List?**
+| **Condition** | **Use Linked List?** |
+|--------------|------------------|
+| When **size is unknown** | ✅ Yes |
+| **Fast insert/delete needed** | ✅ Yes |
+| **Fast searching required** | ❌ No (use arrays or HashMap) |
+| **Memory efficiency needed** | ❌ No (extra space for pointers) |
+
+---
+
+## **Summary**
+🔹 **Linked List is a data structure where each node has data + pointer to the next node.**  
+🔹 **3 types:** **Singly, Doubly, Circular.**  
+🔹 **Operations:** **Insertion, Deletion, Searching, Traversal.**  
+🔹 **Pros:** **Dynamic size, fast insertion/deletion.**  
+🔹 **Cons:** **Extra memory, slow search.**  
+
+🔸 **Use Linked List when dynamic memory and fast insert/delete are needed!** 🚀
