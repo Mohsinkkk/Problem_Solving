@@ -1,0 +1,195 @@
+# **String - Full Details (English + Hinglish)**  
+
+## **What is a String? (English)**
+A **String** is a **sequence of characters** stored as a single entity. It is one of the most commonly used data types in programming. In Java, **Strings are immutable**, meaning once created, they **cannot be changed**.  
+
+## **String Kya Hai? (Hinglish)**
+**String ek sequence of characters hota hai**, jo ek entity ke form me store hota hai. Programming me yeh **bahut important data type hai**. Java me **Strings immutable hote hain**, iska matlab ek baar create hone ke baad **uska content change nahi ho sakta**.  
+
+---
+
+## **How Strings Work in Java?**  
+Java me **String class `java.lang` package ka part hoti hai**, aur isme **bohot saari built-in methods hote hain**. Strings ko 3 tarike se declare kiya ja sakta hai:  
+1. **Using String Literal** (Recommended)  
+2. **Using `new` Keyword**  
+3. **Using `StringBuffer` or `StringBuilder` (for mutable strings)**  
+
+---
+
+## **Ways to Create Strings in Java**
+### **1. Using String Literal (Recommended)**
+```java
+String str1 = "Hello";
+String str2 = "Hello"; // Same memory will be used (String Pool)
+```
+✅ **Efficient hai** kyunki ye **String Pool ka use karta hai**.  
+
+### **2. Using `new` Keyword**
+```java
+String str3 = new String("Hello"); // Different memory allocation
+```
+❌ **Extra memory use hoti hai** kyunki yeh **heap memory me alag se store hota hai**.  
+
+### **3. Using `StringBuffer` and `StringBuilder` (Mutable)**
+```java
+StringBuffer sb = new StringBuffer("Hello"); // Thread-safe but slower
+StringBuilder sb2 = new StringBuilder("Hello"); // Faster, but not thread-safe
+```
+✅ **Use `StringBuilder` for performance, `StringBuffer` for thread-safety**.  
+
+---
+
+## **String Memory Management in Java**
+1. **String Constant Pool** → Immutable strings ko optimize karta hai.  
+2. **Heap Memory** → `new` keyword wale Strings heap me allocate hote hain.  
+
+🔹 **Example (String Pool vs Heap)**  
+```java
+String s1 = "Hello";  
+String s2 = "Hello";  // Same reference, no new object  
+String s3 = new String("Hello");  // New object created in heap  
+```
+
+---
+
+## **Important String Methods**
+| **Method** | **Description** |
+|------------|----------------|
+| `length()` | Returns string length |
+| `charAt(index)` | Returns character at a given index |
+| `substring(start, end)` | Returns a substring |
+| `contains("text")` | Checks if a substring exists |
+| `toLowerCase()` | Converts to lowercase |
+| `toUpperCase()` | Converts to uppercase |
+| `trim()` | Removes leading/trailing spaces |
+| `replace(old, new)` | Replaces characters |
+| `split(delimiter)` | Splits a string into an array |
+| `equals(str)` | Checks if two strings are equal |
+| `equalsIgnoreCase(str)` | Checks equality ignoring case |
+| `concat(str)` | Joins two strings |
+
+---
+
+## **String Example Code in Java**
+```java
+public class Main {
+    public static void main(String[] args) {
+        String str = "Hello, Java!";
+        
+        // Length of string
+        System.out.println("Length: " + str.length()); // Output: 12
+
+        // Character at index 1
+        System.out.println("Char at 1: " + str.charAt(1)); // Output: e
+
+        // Substring from index 7
+        System.out.println("Substring: " + str.substring(7)); // Output: Java!
+
+        // Convert to uppercase
+        System.out.println("Uppercase: " + str.toUpperCase()); // Output: HELLO, JAVA!
+
+        // Replace a character
+        System.out.println("Replace: " + str.replace("Java", "World")); // Output: Hello, World!
+    }
+}
+```
+
+---
+
+## **String Comparison in Java**
+### **1. `==` Operator (Checks Reference)**
+```java
+String s1 = "Hello";
+String s2 = "Hello";
+System.out.println(s1 == s2); // Output: true (same memory reference)
+```
+🚨 **Beware:** If `new` keyword is used, `==` will return `false` because it compares **references, not values**.
+
+### **2. `equals()` Method (Checks Content)**
+```java
+String s3 = new String("Hello");
+System.out.println(s1.equals(s3)); // Output: true
+```
+✅ **Use `equals()` for content comparison!**
+
+### **3. `compareTo()` Method (Lexicographical Order)**
+```java
+String s1 = "Apple";
+String s2 = "Banana";
+System.out.println(s1.compareTo(s2)); // Output: Negative (A < B)
+```
+📌 **Returns:**
+- `0` if both are equal.
+- **Negative** if first is smaller.
+- **Positive** if first is greater.
+
+---
+
+## **Mutable vs Immutable Strings**
+| **Feature** | **String (Immutable)** | **StringBuilder / StringBuffer (Mutable)** |
+|------------|-----------------|-----------------------------|
+| **Memory Usage** | More (New object every time) | Less (Modifies same object) |
+| **Performance** | Slower | Faster |
+| **Thread-Safe** | Yes | No (`StringBuilder`), Yes (`StringBuffer`) |
+
+### **Example of Mutable String using StringBuilder**
+```java
+StringBuilder sb = new StringBuilder("Hello");
+sb.append(" World"); 
+System.out.println(sb); // Output: Hello World
+```
+✅ **Use `StringBuilder` for better performance!**
+
+---
+
+## **String vs StringBuffer vs StringBuilder**
+| **Feature** | **String** | **StringBuffer** | **StringBuilder** |
+|------------|------------|----------------|----------------|
+| **Mutable?** | ❌ No | ✅ Yes | ✅ Yes |
+| **Thread-Safe?** | ✅ Yes | ✅ Yes | ❌ No |
+| **Performance** | Slow | Slow | Fast |
+
+---
+
+## **String Tokenization (`split()` method)**
+```java
+String str = "apple,banana,grapes";
+String[] fruits = str.split(",");
+
+for (String fruit : fruits) {
+    System.out.println(fruit);
+}
+```
+**Output:**
+```
+apple
+banana
+grapes
+```
+
+---
+
+## **Interview Questions on Strings**
+1. **Why are Strings immutable in Java?**
+   - **Answer:** Security, caching, synchronization, and memory optimization.
+
+2. **Difference between `==` and `equals()`?**
+   - `==` compares **references**, `equals()` compares **content**.
+
+3. **Which is faster: `String`, `StringBuilder`, or `StringBuffer`?**
+   - **`StringBuilder`** (Fastest, but not thread-safe).
+   - **`StringBuffer`** (Thread-safe but slower).
+
+4. **How does `String Pool` work in Java?**
+   - Java optimizes memory by **storing unique string literals in a pool**.
+
+---
+
+## **Summary**
+✔ **Strings are immutable** in Java.  
+✔ **Use `StringBuilder` for better performance** if frequent modifications are needed.  
+✔ **Use `==` for reference comparison, `equals()` for content comparison.**  
+✔ **String Pool optimizes memory usage** by reusing literals.  
+✔ **Use `StringBuffer` when thread-safety is required.**  
+
+🚀 **Mastering Strings is crucial for Java programming and interviews!** 🔥
