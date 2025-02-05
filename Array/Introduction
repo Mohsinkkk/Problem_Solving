@@ -1,53 +1,154 @@
-What is an Array?
+Array - Full Details (English + Hinglish)
+What is an Array? (English)
+An Array is a collection of elements stored in contiguous memory locations. It allows storing multiple values of the same data type under a single variable name. Arrays in Java are fixed in size, meaning once declared, their size cannot be changed.
 
-An array is a data structure that holds a fixed-size collection of elements of the same data type. Arrays store elements in contiguous memory locations, meaning the elements are indexed and accessible via their positions.
+Array Kya Hai? (Hinglish)
+Array ek collection of elements hai jo continuous memory locations me store hote hain. Yeh ek same data type ke multiple values ko store kar sakta hai ek hi variable ke andar. Java me arrays ka size fixed hota hai, yaani ek baar declare hone ke baad iska size change nahi ho sakta.
 
-# Key Characteristics of Arrays:
-1. Fixed Size: Once an array is created, its size cannot be changed.
-2. Indexed Access: Elements in an array can be accessed via indices (e.g., `arr[0]` for the first element).
-3. Homogeneous Data: All elements in an array are of the same data type (e.g., all integers or all strings).
-4. Contiguous Memory Allocation: Elements are stored in consecutive memory locations, making access efficient.
+Types of Arrays in Java
+One-Dimensional Array (1D Array)
+Multi-Dimensional Array (2D or 3D Array, etc.)
+Jagged Array (Different length rows in a 2D array)
 
----
+How to Declare an Array?
+java
+// Declaration (1D Array)
+int[] arr;  
+// OR
+int arr[];
 
- Types of Arrays:
-1. One-Dimensional Array: A linear array with a single list of elements.
-   - Example: `int[] arr = {1, 2, 3, 4, 5};`
-   
-2. Multi-Dimensional Array:
-   - Two-Dimensional Array: Often used to represent matrices or grids.
-     - Example: `int[][] arr = {{1, 2}, {3, 4}};`
-   - N-Dimensional Array: Higher-dimensional arrays used for complex data.
+How to Initialize an Array?
+1. Using Static Initialization
 
+int[] arr = {10, 20, 30, 40, 50};
 
- Optimization Techniques:
+2. Using Dynamic Initialization
 
-# 1. Time Complexity Analysis:
-   - Always analyze the time complexity of different operations.
-   - Example: Sorting an array takes O(n log n) but searching in a sorted array using binary search takes O(log n).
+int[] arr = new int[5];  // Creates an array of size 5
+arr[0] = 10;  // Assigning values
+arr[1] = 20;
+📌 Note: Array indexing starts from 0 in Java.
 
-# 2. Space Complexity Optimization:
-   - Sometimes space can be reduced by using in-place algorithms, modifying the array without using extra memory.
-   - Example: In-place reversal of an array.
+Accessing Elements in an Array
 
----
+System.out.println(arr[0]);  // Output: 10
+System.out.println(arr[1]);  // Output: 20
+🚨 If you access an index out of range, Java throws ArrayIndexOutOfBoundsException.
 
- Array in Different Programming Languages:
+Iterating Through an Array
+1. Using a For Loop
+for(int i = 0; i < arr.length; i++) {
+    System.out.println(arr[i]);
+}
+2. Using Enhanced For Loop
+for(int num : arr) {
+    System.out.println(num);
+}
+✅ Enhanced for loop is better for readability!
 
-- C++/Java: Use arrays or `ArrayList` (Java) or `Vector` (C++) for dynamic arrays.
-- Python: Lists serve as dynamic arrays.
-- JavaScript: Arrays are dynamic and can grow/shrink in size.
+Multi-Dimensional Arrays (2D Array)
+int[][] matrix = {
+    {1, 2, 3},
+    {4, 5, 6},
+    {7, 8, 9}
+};
+Accessing a 2D Array Element
+System.out.println(matrix[1][2]);  // Output: 6
 
----
+Iterating Through a 2D Array
+for(int i = 0; i < matrix.length; i++) {
+    for(int j = 0; j < matrix[i].length; j++) {
+        System.out.print(matrix[i][j] + " ");
+    }
+    System.out.println();
+}
+Jagged Arrays (Different Length Rows)
+int[][] jaggedArr = new int[3][];
+jaggedArr[0] = new int[2];  // Row 0 has 2 columns
+jaggedArr[1] = new int[3];  // Row 1 has 3 columns
+jaggedArr[2] = new int[1];  // Row 2 has 1 column
 
- Tips for MAANG Array Preparation:
+Array Methods in Java
 
-1. Master Common Patterns: Sliding window, two-pointer, and divide & conquer techniques often come up in array-based problems.
-   
-2. Practice on LeetCode/HackerRank/Codeforces:
-   - Top Problems: Try problems tagged with arrays and sorted arrays.
-   - Company-Specific: Focus on company-specific problems involving arrays.
+Method/Property	Description
+arr.length	Returns array size
+Arrays.sort(arr)	Sorts an array
+Arrays.fill(arr, val)	Fills array with a value
+Arrays.toString(arr)	Converts array to string
+Arrays.binarySearch(arr, key)	Searches for an element (sorted array)
 
-3. Time Management: Solve problems of varying difficulty (easy, medium, hard) to get a balanced understanding.
+Sorting an Array
 
-4. Optimize for Both Time and Space: In interviews, try to come up with multiple approaches, first focusing on a brute-force solution, then optimizing it.
+import java.util.Arrays;
+public class Main {
+    public static void main(String[] args) {
+        int[] arr = {5, 2, 8, 1, 3};
+        Arrays.sort(arr);
+        System.out.println(Arrays.toString(arr));  // Output: [1, 2, 3, 5, 8]
+    }
+}
+
+Searching in an Array
+1. Linear Search (O(n))
+
+public static int linearSearch(int[] arr, int key) {
+    for (int i = 0; i < arr.length; i++) {
+        if (arr[i] == key) return i;
+    }
+    return -1;
+}
+
+2. Binary Search (O(log n), Sorted Array Required)
+
+import java.util.Arrays;
+public class Main {
+    public static void main(String[] args) {
+        int[] arr = {1, 2, 3, 5, 8};
+        int index = Arrays.binarySearch(arr, 3);
+        System.out.println(index);  // Output: 2
+    }
+}
+
+Array vs ArrayList
+
+Feature	Array	ArrayList
+Size	Fixed	Dynamic
+Performance	Faster	Slightly Slower
+Primitive Types	Yes (int[], char[])	No (Only objects)
+Memory Usage	Less	More
+🔹 Use ArrayList when you need dynamic resizing.
+
+Common Array Interview Questions
+
+1.What is the difference between an array and a linked list?
+Arrays have fixed size, linked lists have dynamic size.
+Arrays allow random access, linked lists allow sequential access.
+
+2.How to reverse an array?
+public static void reverseArray(int[] arr) {
+    int left = 0, right = arr.length - 1;
+    while (left < right) {
+        int temp = arr[left];
+        arr[left] = arr[right];
+        arr[right] = temp;
+        left++;
+        right--;
+    }
+}
+3.How to find the maximum and minimum in an array?
+public static void findMinMax(int[] arr) {
+    int min = arr[0], max = arr[0];
+    for (int num : arr) {
+        if (num < min) min = num;
+        if (num > max) max = num;
+    }
+    System.out.println("Min: " + min + ", Max: " + max);
+}
+Summary
+✔ Arrays store elements of the same type in contiguous memory.
+✔ Java arrays are fixed-size and accessed via indices.
+✔ Use loops to iterate over arrays efficiently.
+✔ For dynamic arrays, use ArrayList.
+✔ Sorting & Searching are commonly used array operations.
+
+🚀 Mastering Arrays is essential for DSA and Java programming! 🔥
