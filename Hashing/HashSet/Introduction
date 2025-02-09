@@ -1,1 +1,123 @@
 
+HashSet Data Structure - Full Beginner Guide
+(English + Hinglish Explanation)
+
+What is a HashSet?
+A HashSet is a data structure in Java that stores unique elements and provides fast access.
+(Yeh ek data structure hai jo sirf unique elements store karta hai aur fast access provide karta hai.)
+
+It is part of Java’s java.util package.
+(Ye Java ke java.util package me hota hai.)
+
+Why Use HashSet?
+Unique Elements Only – It does not allow duplicates.
+(Duplicate values store nahi hoti hain, sirf unique elements hote hain.)
+Fast Operations – Average case O(1) time complexity for insertion, deletion, and search.
+(Insertion, deletion aur search fast hota hai, kyunki average case me O(1) time lagta hai.)
+No Indexing – It does not maintain any order of elements.
+(Isme elements kisi particular order me store nahi hote.)
+Efficient for Lookups – Useful when checking if an element exists in a set.
+(Agar kisi element ko fast check karna ho ki exist karta hai ya nahi, toh yeh useful hai.)
+How HashSet Works Internally?
+HashSet uses a HashMap internally.
+(Iske andar ek HashMap hota hai jo data ko store karta hai.)
+When you add an element, it is actually added as a key in the HashMap.
+(Jab aap koi element add karte ho, toh woh HashMap ki key ke roop me store hota hai.)
+No duplicate keys are allowed in HashMap, so HashSet automatically prevents duplicates.
+(HashMap me duplicate keys allowed nahi hoti, is wajah se HashSet me bhi duplicate elements nahi hote.)
+Basic Operations in HashSet
+1. Creating a HashSet
+java
+Copy
+Edit
+import java.util.HashSet;
+
+public class Main {
+    public static void main(String[] args) {
+        // Creating a HashSet
+        HashSet<Integer> set = new HashSet<>();
+
+        // Adding elements
+        set.add(10);
+        set.add(20);
+        set.add(30);
+        set.add(10); // Duplicate element
+
+        System.out.println(set);
+    }
+}
+Output:
+
+plaintext
+Copy
+Edit
+[10, 20, 30]
+Explanation:
+
+add(value) method se values insert hoti hain.
+Duplicate value 10 ignore ho gayi, kyunki HashSet duplicates allow nahi karta.
+2. Checking If an Element Exists
+java
+Copy
+Edit
+System.out.println(set.contains(20)); // Output: true
+System.out.println(set.contains(40)); // Output: false
+Explanation:
+
+contains(value) check karta hai ki koi value exist karti hai ya nahi.
+3. Removing an Element
+java
+Copy
+Edit
+set.remove(20);
+System.out.println(set); // Output: [10, 30]
+Explanation:
+
+remove(value) se element delete hota hai.
+4. Iterating Over a HashSet
+java
+Copy
+Edit
+for (int num : set) {
+    System.out.println(num);
+}
+Explanation:
+
+Enhanced for loop use karke saare elements print kar sakte hain.
+5. Getting the Size of a HashSet
+java
+Copy
+Edit
+System.out.println(set.size()); // Output: 2
+Explanation:
+
+size() method se total elements count milta hai.
+6. Clearing the HashSet
+java
+Copy
+Edit
+set.clear();
+System.out.println(set); // Output: []
+Explanation:
+
+clear() se saare elements delete ho jate hain.
+Time Complexity of HashSet Operations
+Operation	Average Case	Worst Case (Collision)
+Insertion (add)	O(1)	O(n)
+Deletion (remove)	O(1)	O(n)
+Searching (contains)	O(1)	O(n)
+When to Use HashSet?
+✅ Jab aapko unique elements store karne ho.
+✅ Jab aapko fast search, insert aur delete operations chahiye.
+✅ Jab ordering important nahi ho.
+
+When NOT to Use HashSet?
+❌ Jab insertion order maintain karni ho, use LinkedHashSet.
+❌ Jab sorted elements chahiye, use TreeSet.
+
+Conclusion
+HashSet ek powerful data structure hai jo unique values store karta hai.
+HashMap internally use karta hai, isliye fast operations provide karta hai.
+Duplicates allow nahi karta aur ordering maintain nahi karta.
+Average case me O(1) complexity hoti hai for most operations.
+Ab aapko HashSet ka basic understanding mil gaya! 🚀
