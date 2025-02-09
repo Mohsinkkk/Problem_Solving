@@ -1,1 +1,113 @@
+Hashing in DSA - Full Beginner Guide
+(English + Hinglish Explanation)
 
+What is Hashing?
+Hashing is a technique used to map data to a fixed-size value using a hash function.
+(Hashing ek technique hai jo kisi bhi data ko ek fixed-size value me convert karti hai hash function ka use karke.)
+
+It is widely used in:
+✅ Data structures like HashMap, HashSet
+✅ Database indexing
+✅ Cryptography (password hashing)
+✅ Caching and searching algorithms
+
+Why Use Hashing?
+Fast Searching – Hashing allows O(1) average time complexity for searching.
+(Searching bahut fast hoti hai, average case me O(1) time lagta hai.)
+Efficient Storage – Instead of storing data in lists, hashing stores data in a structured way.
+(Hashing data ko efficiently store karta hai, list ki tarah linear search nahi karni padti.)
+Avoids Duplicate Data – HashSet uses hashing to store only unique values.
+(HashSet duplicate values store nahi karta, kyunki hashing ka use karta hai.)
+Fast Data Access – Hashing helps in quickly retrieving data from large datasets.
+(Bade datasets me data ko jaldi retrieve karne ke liye hashing use hota hai.)
+How Hashing Works?
+Hash Function: Converts an input (key) into a fixed-size value (hash code/index).
+(Hash function input ko ek fixed-size index me convert karta hai.)
+Hash Table: An array where the values are stored at the index calculated by the hash function.
+(Hash Table ek array hota hai, jisme values hash function ke index par store hoti hain.)
+Collision Handling: If two keys produce the same hash index, a technique is used to handle it.
+(Agar do keys ka same index aata hai, to collision handling ka use hota hai.)
+Example of Hashing
+Suppose we have names:
+["John", "David", "Mark", "Lisa"]
+
+A hash function can assign them indices like:
+
+arduino
+Copy
+Edit
+"John"  →  2  
+"David" →  5  
+"Mark"  →  1  
+"Lisa"  →  2  (Collision happens!)
+Now, Lisa and John got the same index (2), which is called a collision.
+
+Hash Functions in Java
+Java provides a hashCode() method to generate a hash value.
+Example:
+
+java
+Copy
+Edit
+public class Main {
+    public static void main(String[] args) {
+        String str1 = "Hello";
+        String str2 = "World";
+
+        System.out.println(str1.hashCode()); // Example Output: 69609650
+        System.out.println(str2.hashCode()); // Example Output: 83766130
+    }
+}
+Explanation:
+
+hashCode() function input ko ek numeric hash code me convert karta hai.
+Different inputs ke different hash codes generate hote hain.
+Collision Handling in Hashing
+When two different keys generate the same hash index, it is called a collision.
+(Agar do different keys ka same index generate hota hai, to usse collision kehte hain.)
+
+Techniques to Handle Collision:
+Chaining (Separate Chaining)
+
+Uses a LinkedList to store multiple values at the same index.
+(Same index par multiple values ko LinkedList me store karta hai.)
+Example: HashMap uses this method in Java.
+Open Addressing (Linear Probing, Quadratic Probing, Double Hashing)
+
+Instead of using a list, it finds the next available slot in the hash table.
+(Agar index occupied ho, to next available slot dhundta hai.)
+Types of Hashing
+1. Static Hashing
+Hash table size is fixed.
+(Table ka size fix hota hai, naye data ke liye resize nahi hota.)
+Example: Simple array-based hash table
+2. Dynamic Hashing
+Hash table grows or shrinks when needed.
+(Agar data zyada ho jaye, to table ka size badhta hai.)
+Example: Extendible Hashing used in databases.
+Time Complexity of Hashing Operations
+Operation	Average Case	Worst Case (Collision)
+Insertion	O(1)	O(n) (Chaining)
+Deletion	O(1)	O(n) (Chaining)
+Searching	O(1)	O(n) (Chaining)
+Real-Life Applications of Hashing
+✅ Databases – Indexing for fast data retrieval
+✅ Cache Systems – Quick access to frequently used data
+✅ Cryptography – Password hashing for security
+✅ Networking – Storing IP addresses in hash tables
+
+When to Use Hashing?
+✅ Jab aapko fast searching aur fast insertion chahiye.
+✅ Jab duplicate values allow nahi karni ho (like in HashSet).
+✅ Jab large datasets handle karne ho.
+
+When NOT to Use Hashing?
+❌ Jab sorting ya ordering maintain karni ho, hashing use nahi karna chahiye.
+❌ Jab continuous memory allocation chahiye, kyunki hashing me memory scattered hoti hai.
+
+Conclusion
+Hashing ek efficient technique hai jo fast searching, insertion aur deletion provide karta hai.
+Hash function key ko index me convert karta hai, jisme data store hota hai.
+Collision handling techniques important hoti hain (Chaining, Open Addressing).
+Data structures like HashMap, HashSet hashing ka use karte hain.
+Ab aapko Hashing ka full basic understanding mil gaya! 🚀
