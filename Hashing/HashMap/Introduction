@@ -1,1 +1,119 @@
+HashMap Data Structure - Full Beginner Guide
+(English + Hinglish Explanation)
 
+What is a HashMap?
+A HashMap is a key-value pair data structure in Java that allows fast retrieval, insertion, and deletion of elements.
+(Ye ek key-value pair data structure hai jo fast retrieval, insertion aur deletion provide karta hai.)
+
+It is part of Java’s java.util package.
+(Ye Java ke java.util package me hota hai.)
+
+Why Use HashMap?
+Fast Lookup – O(1) average time complexity.
+(Search karna fast hota hai, kyunki average case me O(1) time lagta hai.)
+No Duplicate Keys – Only unique keys are allowed.
+(Sirf unique keys allowed hoti hain, duplicate nahi hoti.)
+Efficient Data Storage – Helps store and retrieve data quickly.
+(Efficient storage ke liye use hota hai, data jaldi retrieve hota hai.)
+Key-Value Mapping – Useful when you need to map one value to another.
+(Jab ek value ko kisi dusri value se map karna ho to helpful hota hai.)
+How HashMap Works Internally?
+HashMap stores data in an array of nodes (buckets).
+(HashMap ek array of nodes me data store karta hai.)
+It uses a hash function to calculate the index where a key-value pair should be stored.
+(Ek hash function use karta hai jo key ka index find karta hai.)
+If two keys produce the same index (collision), then HashMap uses LinkedList or Tree to resolve it.
+(Agar collision hota hai, to HashMap LinkedList ya Tree ka use karta hai data ko store karne ke liye.)
+Basic Operations in HashMap
+1. Creating a HashMap
+java
+Copy
+Edit
+import java.util.HashMap;
+
+public class Main {
+    public static void main(String[] args) {
+        // Creating a HashMap
+        HashMap<Integer, String> map = new HashMap<>();
+
+        // Adding elements (put method)
+        map.put(1, "Apple");
+        map.put(2, "Banana");
+        map.put(3, "Orange");
+
+        System.out.println(map);
+    }
+}
+Output:
+
+plaintext
+Copy
+Edit
+{1=Apple, 2=Banana, 3=Orange}
+Explanation:
+
+put(key, value) method se data add kiya jata hai.
+{1=Apple, 2=Banana, 3=Orange} ka matlab hai ki key 1 ka value "Apple" hai, key 2 ka "Banana" hai, etc.
+2. Accessing Elements
+java
+Copy
+Edit
+System.out.println(map.get(1)); // Output: Apple
+Explanation:
+
+get(key) method se value retrieve hoti hai.
+3. Checking if Key Exists
+java
+Copy
+Edit
+System.out.println(map.containsKey(2)); // Output: true
+Explanation:
+
+containsKey(key) check karta hai ki key available hai ya nahi.
+4. Checking if Value Exists
+java
+Copy
+Edit
+System.out.println(map.containsValue("Grapes")); // Output: false
+Explanation:
+
+containsValue(value) check karta hai ki koi value exist karti hai ya nahi.
+5. Removing an Element
+java
+Copy
+Edit
+map.remove(2);
+System.out.println(map); // Output: {1=Apple, 3=Orange}
+Explanation:
+
+remove(key) se key-value pair delete hota hai.
+6. Iterating Over a HashMap
+java
+Copy
+Edit
+for (Integer key : map.keySet()) {
+    System.out.println("Key: " + key + ", Value: " + map.get(key));
+}
+Explanation:
+
+keySet() se saari keys milti hain, aur get(key) se value retrieve hoti hai.
+Time Complexity of HashMap Operations
+Operation	Average Case	Worst Case (Collision)
+Insertion (put)	O(1)	O(n)
+Deletion (remove)	O(1)	O(n)
+Searching (get)	O(1)	O(n)
+When to Use HashMap?
+✅ Jab aapko key-value mapping chahiye.
+✅ Jab aapko fast lookup/search chahiye.
+✅ Jab aapko unique keys store karni ho.
+
+When NOT to Use HashMap?
+❌ Jab aapko ordering maintain karni ho, use LinkedHashMap instead.
+❌ Jab aapko sorted keys chahiye, use TreeMap.
+
+Conclusion
+HashMap ek powerful data structure hai jo fast retrieval provide karta hai.
+Key-value pairs me data store karta hai.
+Collision handling ke liye LinkedList ya Tree ka use karta hai.
+Fast operations (O(1)) provide karta hai most cases me.
+Ab aapko HashMap ka basic understanding mil gaya! 🚀
